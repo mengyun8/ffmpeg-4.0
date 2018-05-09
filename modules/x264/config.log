@@ -1,0 +1,184 @@
+checking for -Werror=unknown-warning-option... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c  -Wall -I. -I$(SRCPATH)  -Werror=unknown-warning-option   -o conftest
+cc1: 错误：-Werror=unknown-warning-option：没有选项 -Wunknown-warning-option
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main (void) {  return 0; }
+--------------------------------------------------
+x264 configure script
+Command line options: "--disable-asm"
+
+checking whether gcc works... yes
+checking whether gcc supports for( int i = 0; i < 9; i++ ); with -std=gnu99... yes
+checking for -mpreferred-stack-boundary=6... yes
+checking for pthread_create(0,0,0,0); in pthread.h... yes
+checking for cpu_set_t p_aff; return CPU_COUNT(&p_aff); in sched.h... yes
+checking for log2f(2); in math.h... yes
+checking for strtok_r(0, 0, 0); in string.h... yes
+checking whether defined(MAP_PRIVATE) is true... yes
+checking for MADV_HUGEPAGE; in sys/mman.h... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6    -m64  -lm -lpthread -o conftest
+conftest.c: 在函数‘main’中:
+conftest.c:2: 错误：‘MADV_HUGEPAGE’未声明(在此函数内第一次使用)
+conftest.c:2: 错误：(即使在一个函数内多次出现，每个未声明的标识符在其
+conftest.c:2: 错误：所在的函数内也只报告一次。)
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <sys/mman.h>
+int main (void) { MADV_HUGEPAGE; return 0; }
+--------------------------------------------------
+checking for packages: libswscale libavutil... no
+Failed commandline was:
+--------------------------------------------------
+pkg-config --exists libswscale libavutil
+--------------------------------------------------
+checking for sws_init_context(0,0,0); in libswscale/swscale.h... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6   -lswscale -lavutil  -m64  -lm -lpthread -o conftest
+conftest.c:1:32: 错误：libswscale/swscale.h：没有那个文件或目录
+conftest.c: 在函数‘main’中:
+conftest.c:2: 警告：隐式声明函数‘sws_init_context’
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <libswscale/swscale.h>
+int main (void) { sws_init_context(0,0,0); return 0; }
+--------------------------------------------------
+checking for packages: libavformat libavcodec libavutil... no
+Failed commandline was:
+--------------------------------------------------
+pkg-config --exists libavformat libavcodec libavutil
+--------------------------------------------------
+checking for -lavformat... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6  -lavformat  -m64  -lm -lpthread -o conftest
+/usr/bin/ld: cannot find -lavformat
+collect2: ld 返回 1
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main (void) {  return 0; }
+--------------------------------------------------
+checking for av_register_all(); in libavformat/avformat.h... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6     -m64  -lm -lpthread -o conftest
+conftest.c:1:34: 错误：libavformat/avformat.h：没有那个文件或目录
+conftest.c: 在函数‘main’中:
+conftest.c:2: 警告：隐式声明函数‘av_register_all’
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <libavformat/avformat.h>
+int main (void) { av_register_all(); return 0; }
+--------------------------------------------------
+checking for packages: ffms2... no
+Failed commandline was:
+--------------------------------------------------
+pkg-config --exists ffms2
+--------------------------------------------------
+checking for FFMS_DestroyVideoSource(0); in ffms.h... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6   -lffms2  -m64  -lm -lpthread -o conftest
+conftest.c:1:18: 错误：ffms.h：没有那个文件或目录
+conftest.c: 在函数‘main’中:
+conftest.c:2: 警告：隐式声明函数‘FFMS_DestroyVideoSource’
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <ffms.h>
+int main (void) { FFMS_DestroyVideoSource(0); return 0; }
+--------------------------------------------------
+checking for FFMS_DestroyVideoSource(0); in ffms.h... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6   -lffms2 -lstdc++   -m64  -lm -lpthread -o conftest
+conftest.c:1:18: 错误：ffms.h：没有那个文件或目录
+conftest.c: 在函数‘main’中:
+conftest.c:2: 警告：隐式声明函数‘FFMS_DestroyVideoSource’
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <ffms.h>
+int main (void) { FFMS_DestroyVideoSource(0); return 0; }
+--------------------------------------------------
+checking for packages: liblsmash... no
+Failed commandline was:
+--------------------------------------------------
+pkg-config --exists liblsmash
+--------------------------------------------------
+checking for lsmash_destroy_root(0); in lsmash.h... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6   -llsmash  -m64  -lm -lpthread -o conftest
+conftest.c:1:20: 错误：lsmash.h：没有那个文件或目录
+conftest.c: 在函数‘main’中:
+conftest.c:2: 警告：隐式声明函数‘lsmash_destroy_root’
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <lsmash.h>
+int main (void) { lsmash_destroy_root(0); return 0; }
+--------------------------------------------------
+checking for -lz... yes
+checking for gf_isom_close(0); in gpac/isomedia.h... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6  -lgpac_static -lz  -m64  -lm -lpthread -o conftest
+conftest.c:1:27: 错误：gpac/isomedia.h：没有那个文件或目录
+conftest.c: 在函数‘main’中:
+conftest.c:2: 警告：隐式声明函数‘gf_isom_close’
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+#include <gpac/isomedia.h>
+int main (void) { gf_isom_close(0); return 0; }
+--------------------------------------------------
+checking for uint32_t test_vec __attribute__ ((vector_size (16))) = {0,1,2,3}; in stdint.h... yes
+checking for -fno-tree-vectorize... yes
+checking for fseeko(stdin,0,0); in stdio.h... yes
+checking for -Wshadow... yes
+checking for -Wmaybe-uninitialized... no
+Failed commandline was:
+--------------------------------------------------
+gcc conftest.c -Wshadow -O3 -ffast-math -m64  -Wall -I. -I$(SRCPATH) -std=gnu99 -D_GNU_SOURCE -mpreferred-stack-boundary=6 -fomit-frame-pointer -fno-tree-vectorize  -Wmaybe-uninitialized -ldl  -m64  -lm -lpthread -o conftest
+cc1: 错误：无法识别的命令行选项“-Wmaybe-uninitialized”
+--------------------------------------------------
+Failed program was:
+--------------------------------------------------
+int main (void) {  return 0; }
+--------------------------------------------------
+
+platform:      X86_64
+byte order:    little-endian
+system:        LINUX
+cli:           yes
+libx264:       internal
+shared:        no
+static:        no
+asm:           no
+interlaced:    yes
+avs:           avxsynth
+lavf:          no
+ffms:          no
+mp4:           no
+gpl:           yes
+thread:        posix
+opencl:        yes
+filters:       crop select_every
+lto:           no
+debug:         no
+gprof:         no
+strip:         no
+PIC:           no
+bit depth:     all
+chroma format: all
